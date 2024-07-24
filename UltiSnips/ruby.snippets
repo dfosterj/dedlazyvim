@@ -1,0 +1,62 @@
+snippet sb
+#!/usr/bin/env ruby
+endsnippet
+
+snippet it
+it { is_expected.to $1('$2') }
+endsnippet
+
+snippet ptf
+it { is_expected.to contain_file('$1')
+	.with(
+			path:  '$2',
+			ensure:  'present',
+			replace:  true,
+			owner:  '$3',
+			group:  '$4',
+			mode:  '$5',
+			source:  'puppet:///modules/$6',
+			)
+}
+endsnippet
+
+snippet pte
+it { is_expected.to contain_exec('$1')
+	.with(
+			command: '$2',
+			subscribe: '$3',
+			require: [
+			$4
+			]
+			)
+}
+endsnippet
+
+
+snippet ptp
+describe 'install check' do
+it { is_expected.to contain_package('${VISUAL}').with(ensure: 'present') }
+end
+
+describe 'service check' do
+it { is_expected.to contain_service('${VISUAL}')
+	.with(
+			ensure: 'running',
+			enable: true,
+			provider: 'systemd',
+			)
+}
+end
+endsnippet
+
+snippet pth
+context 'RedHat' do
+let(:facts) { {
+	:osfamily => 'RedHat',
+#:operatingsystem => 'CentOS',
+		:architecture => 'x86_64',
+} }
+
+it { is_expected.to compile }
+end
+endsnippet

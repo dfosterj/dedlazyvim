@@ -1,0 +1,9 @@
+#Check root user, fail if not
+snippet ruc
+#check root user
+if [ "$(id -u)" != "0" ]; then
+  echo "You should be root to run this script";
+  exit;
+fi
+
+endsnippet
