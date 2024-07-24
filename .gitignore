@@ -1,4 +1,3 @@
 lazygit/*
 !lazygit/config.yml
 installers/*gz
-.gitlab.nvim

@@ -36,9 +36,7 @@ run installers found ./installers
 --server /tmp/godot.pipe --remote-send "<C-\><C-N>:n {file}<CR>{line}G{col}|" 
 
 # Gitlab
-ignored gitlab cred file located at root ./.gitlab.nvim
-with these vars..
-```
+configure the envvars
 export GITLAB_TOKEN="your_gitlab_token"
 export GITLAB_URL="https://my-personal-gitlab-instance.com/"
 ```

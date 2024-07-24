@@ -21,7 +21,7 @@ local map = vim.api.nvim_set_keymap
 vim.api.nvim_del_keymap('n', '<leader><leader>')
 map('n', '<leader>f', '<cmd>Telescope find_files<CR>', { noremap = true, silent = true })
 
-#gitlab
+-- gitlab
 local gitlab = require("gitlab")
 local gitlab_server = require("gitlab.server")
 vim.keymap.set("n", "glb", gitlab.choose_merge_request)
