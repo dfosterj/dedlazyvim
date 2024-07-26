@@ -8,7 +8,7 @@ call deoplete#custom#var('omni', 'input_patterns', {
 call deoplete#custom#option('sources', {
     \ 'rust': ['lsp'],
     \})
-   
+
 call deoplete#custom#source('_', 'converters', [
     \ 'converter_remove_paren',
     \ 'converter_remove_overlap',
