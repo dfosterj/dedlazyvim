@@ -39,7 +39,3 @@ run installers found ./installers
 configure the envvars
 export GITLAB_TOKEN="your_gitlab_token"
 export GITLAB_URL="https://my-personal-gitlab-instance.com/"
-```
-```
-
-
