@@ -6,3 +6,5 @@ if gdproject then
   io.close(gdproject)
   vim.fn.serverstart '/tmp/godot.pipe'
 end
+
+local nvim_lsp = require('lspconfig')
