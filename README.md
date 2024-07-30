@@ -5,6 +5,11 @@ includes installers for debian based linux distros, working ulitsnips, lazygit, 
 
 ![alt text](https://github.com/dfosterj/dedneovim/blob/main/.preview.png?raw=true)
 
+
+# TODO
+Fix Gitlab integration
+Fix toggleterm overtaking godot remote send
+
 # Dependencies
 neovim-cmp
 python3-pynvim
