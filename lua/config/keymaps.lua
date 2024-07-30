@@ -24,5 +24,5 @@ map('n', '<leader>f', '<cmd>Telescope find_files<CR>', { noremap = true, silent 
 
 
 -- github control cmds
-vim.api.nvim_set_keymap("", "<leader>prc", ":terminal gh create pr<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("", "<leader>prc", ":terminal gh pr create<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("", "<leader>prr", ":terminal gh dash pr<CR>", { noremap = true, silent = true })
