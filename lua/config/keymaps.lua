@@ -20,3 +20,9 @@ vim.api.nvim_set_keymap("", "<leader>mm", ":terminal make<CR>", { noremap = true
 local map = vim.api.nvim_set_keymap
 vim.api.nvim_del_keymap('n', '<leader><leader>')
 map('n', '<leader>f', '<cmd>Telescope find_files<CR>', { noremap = true, silent = true })
+
+
+
+-- github control cmds
+vim.api.nvim_set_keymap("", "<leader>prc", ":terminal gh pr create<CR>", { noremap = true, silent = false })
+vim.api.nvim_set_keymap("", "<leader>prr", ":terminal gh dash pr<CR>", { noremap = true, silent = false })
