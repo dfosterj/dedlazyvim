@@ -2,3 +2,5 @@ lazygit/*
 !lazygit/config.yml
 installers/*gz
 lazy-lock.json
+.lsp/
+.lsp/**/*
