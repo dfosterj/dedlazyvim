@@ -48,15 +48,3 @@ leader+prc
 * auto serves godot external editor. Just start nvim in root godot project dir and add these settings to your godot options.
 /opt/nvim-linux64/bin/nvim
 --server /tmp/godot.pipe --remote-send "<C-\><C-N>:n {file}<CR>{line}G{col}|" 
-
-# ToggleTerm
-* split horizontal
-leader+tt
-
-* split vertical
-leader+tv
-
-* float
-leader+tT
-
-* crtl + vim commands dirctions for navigation
