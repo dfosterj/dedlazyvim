@@ -1,6 +1,5 @@
 return {
   { "ellisonleao/gruvbox.nvim" },
-  { "Mofiqul/dracula.nvim" },
   { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
   { "rebelot/kanagawa.nvim" },
   { "sho-87/kanagawa-paper.nvim" },
@@ -9,7 +8,8 @@ return {
   { "navarasu/onedark.nvim"},
   { "xero/miasma.nvim", lazy = false, priority = 1000 },
   { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
-
+  { "blazkowolf/gruber-darker.nvim"},
+  { "Mofiqul/dracula.nvim" },
   {
     "LazyVim/LazyVim",
     opts = {
@@ -18,3 +18,18 @@ return {
   },
 }
 
+-- example bg overwrite
+-- {
+--     "Mofiqul/dracula.nvim",
+--     config = function()
+--         require('dracula').setup({
+--                 -- You can set any specific options for the Dracula theme here
+--             })
+--         -- Set the colorscheme
+--         vim.cmd("colorscheme dracula")
+
+--         -- Override the background color
+--         vim.api.nvim_set_hl(0, "Normal", { bg = "#141414" })
+--         vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#141414" })
+--     end,
+-- },
