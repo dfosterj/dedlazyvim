@@ -5,7 +5,7 @@ return {
       -- You can customize the command here to point to your local installation
       local cmd = {
         "dotnet",
-        "path/to/csharp-language-server/CSharpLanguageServer.dll",
+        "/opt/omnisharp/OmniSharp.Extensions.LanguageServer.dll",
       }
 
       require('lspconfig').csharp_ls.setup({

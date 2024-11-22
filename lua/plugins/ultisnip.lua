@@ -2,9 +2,9 @@ return{
 {
     "SirVer/ultisnips",
     init = function()
-      -- Unmap the <tab> key
-      vim.api.nvim_del_keymap('i', '<tab>')
-      vim.api.nvim_del_keymap('s', '<tab>')
+      -- -- Unmap the <tab> key
+      -- vim.api.nvim_del_keymap('i', '<tab>')
+      -- vim.api.nvim_del_keymap('s', '<tab>')
 
       -- Alternative way to unmap in case it was set with a specific option
       vim.api.nvim_set_keymap('i', '<tab>', '', { noremap = true, silent = true })
