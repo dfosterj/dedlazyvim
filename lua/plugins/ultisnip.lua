@@ -6,9 +6,9 @@ return{
       -- vim.api.nvim_del_keymap('i', '<tab>')
       -- vim.api.nvim_del_keymap('s', '<tab>')
 
-      -- Alternative way to unmap in case it was set with a specific option
-      vim.api.nvim_set_keymap('i', '<tab>', '', { noremap = true, silent = true })
-      vim.api.nvim_set_keymap('s', '<tab>', '', { noremap = true, silent = true })
+      -- -- Alternative way to unmap in case it was set with a specific option
+      -- vim.api.nvim_set_keymap('i', '<tab>', '', { noremap = true, silent = true })
+      -- vim.api.nvim_set_keymap('s', '<tab>', '', { noremap = true, silent = true })
 
       -- vim.g.UltiSnipsExpandTrigger = '<tab>'
       vim.g.UltiSnipsExpandTrigger = '<C-K>'
