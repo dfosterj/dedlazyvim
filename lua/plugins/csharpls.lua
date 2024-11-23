@@ -1,11 +1,12 @@
 return {
   {
     "razzmatazz/csharp-language-server",
+
     config = function()
       -- You can customize the command here to point to your local installation
       local cmd = {
         "dotnet",
-        "/opt/omnisharp/OmniSharp.Extensions.LanguageServer.dll",
+        "/home/ded/.config/nvim/.lib/OmniSharp.Extensions.LanguageServer.dll",
       }
 
       require('lspconfig').csharp_ls.setup({
