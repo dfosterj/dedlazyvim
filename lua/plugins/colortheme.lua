@@ -10,6 +10,8 @@ return {
   { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
   { "blazkowolf/gruber-darker.nvim"},
   { "Mofiqul/dracula.nvim" },
+  { "AlexvZyl/nordic.nvim" },
+
   {
     "LazyVim/LazyVim",
     opts = {

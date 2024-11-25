@@ -23,9 +23,9 @@ map('n', '<C-p>', ':Telescope find_files<CR>', { noremap = true, silent = true }
 
 -- gh control
 vim.api.nvim_set_keymap("", '<leader>prc', ':lua require("toggleterm.terminal").Terminal:new({ cmd = "gh pr create", hidden = true }):toggle()<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap(
-  "",
-  '<leader>prr',
-  ':lua require("toggleterm.terminal").Terminal:new({ cmd = "gh dash", hidden = true, direction = "float" }):toggle()<CR>',
-  { noremap = true, silent = true }
-)
+vim.api.nvim_set_keymap( "", '<leader>prr', ':lua require("toggleterm.terminal").Terminal:new({ cmd = "gh dash", hidden = true, direction = "float" }):toggle()<CR>', { noremap = true, silent = true })
+
+
+-- rust
+vim.api.nvim_set_keymap("", "<leader>rr", ':TermExec cmd="cargo run"<CR>', { noremap = true, silent = true })
+
