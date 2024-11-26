@@ -9,3 +9,12 @@ if gdproject then
 end
 
 local nvim_lsp = require('lspconfig')
+
+vim.cmd [[
+  highlight Normal guibg=none
+  highlight NonText guibg=none
+  highlight Normal ctermbg=none
+  highlight NonText ctermbg=none
+]]
+
+-- vim.g.claude_api_key = os.getenv("API_KEY")
