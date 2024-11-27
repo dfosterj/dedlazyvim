@@ -20,7 +20,7 @@ return {
   config = function(_, opts)
     -- Initialize the plugin with the provided options
     require('toggleterm').setup(opts)
-
+    
     -- Keybindings for managing tabs and panes
     local map = vim.api.nvim_set_keymap
     local default_opts = { noremap = true, silent = true }

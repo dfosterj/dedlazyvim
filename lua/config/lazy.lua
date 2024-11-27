@@ -51,7 +51,7 @@ require("lazy").setup({
     build = ':TSUpdate',
     config = function()
       require('nvim-treesitter.configs').setup {
-        ensure_installed = { 'markdown', 'terraform', 'gdscript', 'godot_resource', 'gdshader', 'bash', 'c', 'html', 'lua', 'ruby', 'python', 'javascript', 'rust' },
+        ensure_installed = { 'terraform', 'gdscript', 'godot_resource', 'gdshader', 'bash', 'c', 'html', 'lua', 'ruby', 'python', 'javascript', 'rust' },
         auto_install = true,
         highlight = { enable = true  },
         indent = { enable = true },

@@ -1,4 +1,6 @@
+-- In your plugins configuration file
 return {
+  -- Include any plugins you're using
   {
     'nvim-telescope/telescope.nvim',
     config = function()
@@ -6,5 +8,6 @@ return {
       vim.api.nvim_set_keymap('n', '<space>f', ':Telescope find_files<CR>', { noremap = true, silent = true })
     end
   },
+  -- Your other plugins...
 }
 
