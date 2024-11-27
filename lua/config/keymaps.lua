@@ -13,13 +13,16 @@ vim.keymap.set("n", "<leader>xx", function()
             underline = isLspDiagnosticsVisible
         }) end)
 
-
-vim.api.nvim_set_keymap("", "<leader>mm", ":terminal make<CR>", { noremap = true, silent = true })
-
-
+-- neovim
+vim.keymap.set('n', '<C-n>', ':Neotree toggle<CR>', { noremap = true, silent = true, desc = "Toggle Neo-tree" })
 local map = vim.api.nvim_set_keymap
 vim.api.nvim_del_keymap('n', '<leader><leader>')
 map('n', '<C-p>', ':Telescope find_files<CR>', { noremap = true, silent = true })
+
+-- clang
+vim.api.nvim_set_keymap("", "<leader>mm", ":terminal make<CR>", { noremap = true, silent = true })
+
+
 
 -- gh control
 vim.api.nvim_set_keymap("", '<leader>prc', ':lua require("toggleterm.terminal").Terminal:new({ cmd = "gh pr create", hidden = true }):toggle()<CR>', { noremap = true, silent = true })
