@@ -30,5 +30,5 @@ vim.api.nvim_set_keymap( "", '<leader>prr', ':lua require("toggleterm.terminal")
 
 
 -- rust
-vim.api.nvim_set_keymap("", "<leader>rr", ':TermExec cmd="cargo run"<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap("", "<,>cr", ':TermExec cmd="cargo run"<CR>', { noremap = true, silent = true })
 
