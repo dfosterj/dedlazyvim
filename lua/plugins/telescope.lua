@@ -8,6 +8,10 @@ return {
       vim.api.nvim_set_keymap('n', '<space>f', ':Telescope find_files<CR>', { noremap = true, silent = true })
     end
   },
-  -- Your other plugins...
+  require('telescope').setup {
+    defaults = {
+	    file_ignore_patterns = { "target" },
+		}
+	}
 }
 
