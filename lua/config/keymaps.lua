@@ -18,6 +18,11 @@ vim.keymap.set('n', '<C-n>', ':Neotree toggle<CR>', { noremap = true, silent = t
 local map = vim.api.nvim_set_keymap
 vim.api.nvim_del_keymap('n', '<leader><leader>')
 map('n', '<C-p>', ':Telescope find_files<CR>', { noremap = true, silent = true })
+-- Resize splits using Ctrl+w followed by arrow keys
+vim.api.nvim_set_keymap('n', '<C-W><Up>', ':resize +2<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-W><Down>', ':resize -2<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-W><Left>', ':vertical resize -2<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-W><Right>', ':vertical resize +2<CR>', { noremap = true, silent = true })
 
 -- clang
 vim.api.nvim_set_keymap("", "<leader>mm", ":terminal make<CR>", { noremap = true, silent = true })
