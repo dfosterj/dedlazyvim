@@ -35,7 +35,7 @@ vim.api.nvim_set_keymap( "", '<leader>prr', ':lua require("toggleterm.terminal")
 
 
 -- rust
-vim.api.nvim_set_keymap("", "<,>cr", ':TermExec cmd="cargo run"<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>cr", ':TermExec cmd="cargo run %" go_back=0<CR>', { noremap = true, silent = true })
 
 -- python
 vim.api.nvim_set_keymap("n", "<leader>pp", ':TermExec cmd="python3 %" go_back=0<CR>', { noremap = true, silent = true })
