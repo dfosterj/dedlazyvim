@@ -23,6 +23,9 @@ vim.api.nvim_set_keymap('n', '<C-W><Up>', ':resize +2<CR>', { noremap = true, si
 vim.api.nvim_set_keymap('n', '<C-W><Down>', ':resize -2<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-W><Left>', ':vertical resize -2<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-W><Right>', ':vertical resize +2<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-f>", "<C-d>", { desc = "Page Down" })
+vim.api.nvim_set_keymap("n", "<C-b>", "<C-u>", { desc = "Page Up" })
+
 
 -- clang
 vim.api.nvim_set_keymap("", "<leader>mm", ":terminal make<CR>", { noremap = true, silent = true })
