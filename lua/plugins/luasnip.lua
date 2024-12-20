@@ -1,35 +1,43 @@
 return {
-  -- { "L3MON4D3/LuaSnip", enabled = false }, -- disable luasnip
+  -- Disable LuaSnip if using UltiSnips
+  -- { "L3MON4D3/LuaSnip", enabled = false },
+  -- Enable UltiSnips and configure the snippet directory
   {
     "SirVer/ultisnips",
     init = function()
       vim.g.UltiSnipsSnippetDirectories = { "~/.config/nvim/UltiSnips" }
     end,
-  }, -- enable ultisnip
-  { "quangnguyen30192/cmp-nvim-ultisnips" }, --integrate ultisnips with nvim-cmp for completion
+  },
+
+  -- Integrate UltiSnips with nvim-cmp
+  { "quangnguyen30192/cmp-nvim-ultisnips" },
+
+  -- nvim-cmp setup
   {
     "hrsh7th/nvim-cmp",
-    version = false, -- last release is way too old
-    event = "InsertEnter",
+    version = false,  -- Use latest version, avoid outdated one
+    event = "InsertEnter",  -- Load on InsertEnter event
     dependencies = {
-      "hrsh7th/cmp-nvim-lsp",
-      "hrsh7th/cmp-buffer",
-      "hrsh7th/cmp-path",
-      "quangnguyen30192/cmp-nvim-ultisnips",
-      "saadparwaiz1/cmp_luasnip",
+      "hrsh7th/cmp-nvim-lsp",    -- LSP source for completions
+      "hrsh7th/cmp-buffer",      -- Buffer source for completions
+      "hrsh7th/cmp-path",        -- Path source for completions
+      "quangnguyen30192/cmp-nvim-ultisnips",  -- Integrate UltiSnips with nvim-cmp
+      "saadparwaiz1/cmp_luasnip",  -- LuaSnip integration (you can switch to this if needed)
     },
-    opts = function()
-      vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
-      local cmp = require("cmp")
-      local defaults = require("cmp.config.default")()
-      return {
+    config = function()
+      local cmp = require('cmp')
+      local defaults = require('cmp.config.default')()
+
+      -- nvim-cmp configuration
+      cmp.setup({
         completion = {
-          completeopt = "menu,menuone,noinsert",
+          completeopt = "menu,menuone,noinsert",  -- Controls the completion menu
         },
         snippet = {
           expand = function(args)
-            vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
-            --require("luasnip").lsp_expand(args.body)
+            -- Use UltiSnips for snippet expansion
+            vim.fn["UltiSnips#Anon"](args.body)
+            -- For LuaSnip, use: require("luasnip").lsp_expand(args.body)
           end,
         },
         mapping = cmp.mapping.preset.insert({
@@ -39,15 +47,14 @@ return {
           ["<C-f>"] = cmp.mapping.scroll_docs(4),
           ["<C-Space>"] = cmp.mapping.complete(),
           ["<C-e>"] = cmp.mapping.abort(),
-          ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+          ["<CR>"] = cmp.mapping.confirm({ select = true }),
           ["<S-CR>"] = cmp.mapping.confirm({
             behavior = cmp.ConfirmBehavior.Replace,
             select = true,
-          }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+          }),
         }),
         sources = cmp.config.sources({
           { name = "nvim_lsp" },
-          --{ name = "luasnip" },
           { name = "ultisnips" },
           { name = "buffer" },
           { name = "path" },
@@ -63,11 +70,12 @@ return {
         },
         experimental = {
           ghost_text = {
-            hl_group = "CmpGhostText",
+            hl_group = "CmpGhostText",  -- Set highlight group for ghost text
           },
         },
         sorting = defaults.sorting,
-      }
+      })
     end,
   },
 }
+
