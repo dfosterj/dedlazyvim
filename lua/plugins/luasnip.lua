@@ -1,73 +1,40 @@
 return {
-  -- { "L3MON4D3/LuaSnip", enabled = false }, -- disable luasnip
-  {
-    "SirVer/ultisnips",
-    init = function()
-      vim.g.UltiSnipsSnippetDirectories = { "~/.config/nvim/UltiSnips" }
-    end,
-  }, -- enable ultisnip
-  { "quangnguyen30192/cmp-nvim-ultisnips" }, --integrate ultisnips with nvim-cmp for completion
-  {
-    "hrsh7th/nvim-cmp",
-    version = false, -- last release is way too old
-    event = "InsertEnter",
-    dependencies = {
-      "hrsh7th/cmp-nvim-lsp",
-      "hrsh7th/cmp-buffer",
-      "hrsh7th/cmp-path",
-      "quangnguyen30192/cmp-nvim-ultisnips",
-      "saadparwaiz1/cmp_luasnip",
-    },
-    opts = function()
-      vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
-      local cmp = require("cmp")
-      local defaults = require("cmp.config.default")()
-      return {
-        completion = {
-          completeopt = "menu,menuone,noinsert",
-        },
-        snippet = {
-          expand = function(args)
-            vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
-            --require("luasnip").lsp_expand(args.body)
-          end,
-        },
-        mapping = cmp.mapping.preset.insert({
-          ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
-          ["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
-          ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-          ["<C-f>"] = cmp.mapping.scroll_docs(4),
-          ["<C-Space>"] = cmp.mapping.complete(),
-          ["<C-e>"] = cmp.mapping.abort(),
-          ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-          ["<S-CR>"] = cmp.mapping.confirm({
-            behavior = cmp.ConfirmBehavior.Replace,
-            select = true,
-          }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-        }),
-        sources = cmp.config.sources({
-          { name = "nvim_lsp" },
-          --{ name = "luasnip" },
-          { name = "ultisnips" },
-          { name = "buffer" },
-          { name = "path" },
-        }),
-        formatting = {
-          format = function(_, item)
-            local icons = require("lazyvim.config").icons.kinds
-            if icons[item.kind] then
-              item.kind = icons[item.kind] .. item.kind
-            end
-            return item
-          end,
-        },
-        experimental = {
-          ghost_text = {
-            hl_group = "CmpGhostText",
-          },
-        },
-        sorting = defaults.sorting,
-      }
-    end,
+  "L3MON4D3/LuaSnip",
+  dependencies = {
+    "rafamadriz/friendly-snippets",
   },
+  config = function()
+    local luasnip = require("luasnip")
+
+    -- Set the directory for custom snippets
+    local snippets_dir = vim.fn.stdpath("config") .. "/snippets"
+
+    -- Load custom snippets from the directory
+    require("luasnip.loaders.from_lua").lazy_load({ paths = { snippets_dir } })
+
+    -- Load VSCode-style snippets
+    require("luasnip.loaders.from_vscode").lazy_load()
+
+    -- Enable filetype-specific snippets
+    luasnip.filetype_extend("bash", { "sh" })
+    luasnip.filetype_extend("ruby", { "rb" })
+    luasnip.filetype_extend("python", { "py" })
+    luasnip.filetype_extend("csharp", { "cs" })
+    luasnip.filetype_extend("cpp", { "c" })
+    luasnip.filetype_extend("rust", { "rs" })
+    luasnip.filetype_extend("gdscript", { "gd" })
+    luasnip.filetype_extend("puppet", { "pp" })
+    luasnip.filetype_extend("terraform", { "tf" })
+
+    -- Keybinding to open the LuaSnip snippets directory
+    vim.api.nvim_set_keymap(
+      "n",
+      "<Leader>le",
+      ":e " .. snippets_dir .. "<CR>",
+      { noremap = true, silent = true, desc = "Edit LuaSnip snippets" }
+    )
+
+    print("LuaSnip configured with custom snippets from " .. snippets_dir)
+  end,
 }
+
