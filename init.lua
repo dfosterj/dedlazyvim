@@ -1,7 +1,7 @@
 -- bootstrap lazy.nvim, LazyVim and your plugins
 require("config.lazy")
 require("toggleterm").setup({
-  shell = vim.fn.getenv("SHELL"),
+  shell = vim.fn.executable("zsh") and "zsh" or vim.o.shell,
 })
 
 local gdproject = io.open(vim.fn.getcwd()..'/project.godot', 'r')

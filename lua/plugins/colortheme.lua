@@ -10,7 +10,7 @@ return {
   { "Mofiqul/dracula.nvim" },
   { "AlexvZyl/nordic.nvim" },
   { "rose-pine/neovim", name = "rose-pine" },
-  { "folke/tokyonight.nvim"},
+  { "folke/tokyonight.nvim", lazy = false, priority = 1000 },
 
   {
     "LazyVim/LazyVim",

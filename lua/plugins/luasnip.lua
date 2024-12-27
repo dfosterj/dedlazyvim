@@ -27,12 +27,31 @@ return {
     luasnip.filetype_extend("terraform", { "tf" })
 
     -- Keybinding to open the LuaSnip snippets directory
-    vim.api.nvim_set_keymap(
+    -- vim.api.nvim_set_keymap(
+    --   "n",
+    --   "<Leader>u",
+    --   ":e " .. snippets_dir .. "<CR>",
+    --   { noremap = true, silent = true, desc = "Edit LuaSnip snippets" }
+    -- )
+    vim.keymap.set(
       "n",
-      "<Leader>le",
-      ":e " .. snippets_dir .. "<CR>",
-      { noremap = true, silent = true, desc = "Edit LuaSnip snippets" }
+      ",se",
+      function()
+        local ext = vim.fn.expand("%:e") -- Get the file extension
+        local snippets_dir = "/path/to/snippets/" -- Replace with your snippets directory
+        local snippet_file = snippets_dir .. ext .. ".lua"
+        vim.cmd("e " .. snippet_file) -- Open the corresponding Lua snippet file
+      end,
+      { noremap = true, silent = true, desc = "Edit LuaSnip snippets for file type" }
     )
+
+    -- vim.api.nvim_set_keymap(
+    --   "n",
+    --   "<Leader>uu",
+    --   [[:lua local ext = vim.fn.expand("%:e"); local snippets_dir = "/path/to/snippets/"; vim.cmd("e " .. snippets_dir .. ext .. ".lua")<CR>]],
+    --   { noremap = true, silent = true, desc = "Edit LuaSnip snippets for file type" }
+    -- )
+
 
     print("LuaSnip configured with custom snippets from " .. snippets_dir)
   end,
