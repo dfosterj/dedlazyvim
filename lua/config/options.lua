@@ -7,6 +7,8 @@ opt.tabstop = 4
 opt.autoindent = true
 opt.smartindent = true
 opt.undofile = false
+opt.number = true;
+opt.relativenumber = false;
 
 -- scale neovide
 vim.g.neovide_scale_factor = 0.5
