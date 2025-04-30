@@ -15,7 +15,7 @@ return {
   }),
   -- Shebang snippet
   s("sb", {
-    t("#!/bin/bash"),
+    t("#!/usr/bin/env bash"),
   }),
 }
 
