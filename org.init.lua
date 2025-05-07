@@ -12,3 +12,7 @@ require("toggleterm").setup({
 
 local nvim_lsp = require('lspconfig')
 
+-- possible addon later
+-- require('obsidian').setup({
+--     ui = { enable = false },
+-- }) 
